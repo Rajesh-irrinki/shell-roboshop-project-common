@@ -10,6 +10,7 @@ N="\e[0m"
 script_dir=$(cd "$(dirname "$0")" && pwd)
 start_time=$(date +%s)
 echo "Script execution started at : $(date '+%F %T' )"
+
 mkdir -p $log_folder
 
 check_root() {

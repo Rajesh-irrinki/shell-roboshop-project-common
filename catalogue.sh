@@ -5,6 +5,8 @@ mongodb_host=mongodb.rajeshirrinki.online
 
 source ./common.sh
 
+check_root
+
 nodejs_setup
 
 user_creation roboshop
