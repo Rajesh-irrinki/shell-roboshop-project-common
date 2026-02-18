@@ -4,6 +4,8 @@ app_name=shipping
 
 source ./common.sh
 
+check_root
+
 maven_install
 
 app_setup
