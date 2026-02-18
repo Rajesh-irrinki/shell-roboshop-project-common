@@ -11,6 +11,8 @@ validate $? "Installing python"
 
 app_setup $app_name
 
+python_build 
+
 systemd_setup $app_name
 
 daemon_reload
