@@ -2,6 +2,8 @@
 
 app_name=redis
 
+check_root 
+
 dnf module disable redis -y &>>$log_file
 dnf module enable redis:7 -y &>>$log_file
 validate $? "Enabling redis 7 version"
