@@ -2,7 +2,7 @@
 
 app_name=shipping
 
-source ./common.ship
+source ./common.sh
 
 maven_install
 
