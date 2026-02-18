@@ -21,6 +21,6 @@ validate $? "Cart systemd service creation"
 
 daemon_reload
 
-service_start
+service_start cart
 
 execution_time

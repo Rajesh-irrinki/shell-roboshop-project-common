@@ -22,7 +22,7 @@ validate $? "Catalogue systemd service creation"
 
 daemon_reload
 
-service_start 
+service_start $app_name
 
 cp $script_dir/mongo.repo /etc/yum.repos.d/mongo.repo &>>$log_file
 validate $? "Mongo.repo creation"

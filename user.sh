@@ -23,7 +23,7 @@ validate $? "User systemd service creation"
 
 daemon_reload
 
-service_start
+service_start $app_name
 
 execution_time
 

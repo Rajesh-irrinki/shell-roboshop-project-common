@@ -73,14 +73,14 @@ daemon_reload() {
 }
 
 service_start() {
-    systemctl enable $app_name &>>$log_file
-    systemctl start $app_name &>>$log_file
+    systemctl enable $1 &>>$log_file
+    systemctl start $1 &>>$log_file
     validate $? "Enabling and Starting $app_name"
 }
 
 service_restart() {
-    systemctl restart $app_name &>>$log_file
-    validate $? "Restart $app_name service"
+    systemctl restart $1 &>>$log_file
+    validate $? "Restart $1 service"
 }
 
 execution_time( ){
