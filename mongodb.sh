@@ -19,4 +19,6 @@ validate $? "Allow remote connections"
 
 service_restart $app_name
 
+execution_time
+
 

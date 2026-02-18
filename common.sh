@@ -38,3 +38,8 @@ service_restart() {
     systemctl restart $app_name &>>$log_file
     validate $? "Restart $app_name service"
 }
+
+execution_time( ){
+    end_time=$(date +%s)
+    echo "scripti execution time $(($end_time - $start_time))"
+}
