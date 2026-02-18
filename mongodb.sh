@@ -1,8 +1,9 @@
 #!/bin/bash
 
 app_name=mongod
+script_dir=$(cd "$(dirname "$0")" && pwd)
 
-source ./common.sh
+source $script_dir/common.sh
 
 check_root
 

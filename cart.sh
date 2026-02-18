@@ -1,8 +1,8 @@
 #!/bin/bash
 
 app_name=cart
-
-source ./common.sh
+script_dir=$(cd "$(dirname "$0")" && pwd)
+source $script_dir/common.sh
 
 check_root
 

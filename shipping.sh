@@ -1,9 +1,10 @@
 #!/bin/bash
 
 app_name=shipping
+script_dir=$(cd "$(dirname "$0")" && pwd)
 mysql_host=mysql.rajeshirrinki.online
 
-source ./common.sh
+source $script_dir/common.sh
 
 check_root
 
