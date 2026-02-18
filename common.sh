@@ -54,7 +54,7 @@ app_setup() {
     validate $? "App directory creation"
 
     curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>$log_file
-    validate $? "Downloading catalogue"
+    validate $? "Downloading $app_name code"
 
     cd /app &>>$log_file
     validate $? "Moving to app directory" 
@@ -63,7 +63,7 @@ app_setup() {
     validate $? "Removing existing code in app directory"
 
     unzip /tmp/$app_name.zip &>>$log_file
-    validate $? "Unziping catalogue code"
+    validate $? "Unziping $app_name code"
 
 }
 
