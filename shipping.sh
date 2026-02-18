@@ -1,6 +1,7 @@
 #!/bin/bash
 
 app_name=shipping
+mysql_host=mysql.rajeshirrinki.online
 
 source ./common.sh
 
