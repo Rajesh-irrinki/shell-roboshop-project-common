@@ -6,7 +6,7 @@ source ./common.sh
 
 check_root
 
-$script_dir/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>>$log_file
+cp $script_dir/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>>$log_file
 validate $? "Creating Rabbitmq.repo file"
 
 dnf install rabbitmq-server -y &>>$log_file
