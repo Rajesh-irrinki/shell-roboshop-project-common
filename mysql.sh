@@ -11,7 +11,7 @@ validate $? "Installing mysql"
 
 service_start mysqld
 
-mysql_secure_installation --set-root-pass RoboShop@1
+mysql_secure_installation --set-root-pass RoboShop@1 &>>$log_file
 validate $? "Setup root password"
 
 execution_time
