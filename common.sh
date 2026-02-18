@@ -85,5 +85,5 @@ service_restart() {
 
 execution_time( ){
     end_time=$(date +%s)
-    echo "scripti execution time $(($end_time - $start_time))"
+    echo "script execution time $(($end_time - $start_time))"
 }

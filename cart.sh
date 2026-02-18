@@ -13,7 +13,7 @@ user_creation roboshop
 app_setup
 
 cd /app &>>$log_file
-npm install
+npm install  &>>$log_file
 validate $? "Installing dependencies"
 
 cp $script_dir/cart.service /etc/systemd/system/cart.service &>>$log_file
