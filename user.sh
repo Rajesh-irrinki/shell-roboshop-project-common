@@ -8,18 +8,11 @@ check_root
 
 nodejs_setup 
 
-user_creation roboshop
-
 app_setup
 
-cd /app
-validate $? "Moving to app directory" 
+nodejs_build
 
-npm install &>>$log_file
-validate $? "Installing dependencies"
-
-cp $script_dir/user.service /etc/systemd/system/user.service
-validate $? "User systemd service creation"
+systemd_setup $app_name
 
 daemon_reload
 

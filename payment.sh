@@ -1,16 +1,15 @@
 #!/bin/bash
 
-app_name=cart
+app_name=payment
 
 source ./common.sh
 
 check_root
 
-nodejs_setup
+dnf install python3 gcc python3-devel -y &>>$log_file
+validate $? "Installing python"
 
-app_setup
-
-nodejs_build 
+app_setup $app_name
 
 systemd_setup $app_name
 

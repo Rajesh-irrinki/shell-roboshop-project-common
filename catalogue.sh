@@ -9,16 +9,11 @@ check_root
 
 nodejs_setup
 
-user_creation roboshop
-
 app_setup 
 
-cd /app 
-npm install &>>$log_file
-validate $? "Installing Dependencies"
+nodejs_build
 
-cp $script_dir/catalogue.service /etc/systemd/system/catalogue.service &>>$log_file
-validate $? "Catalogue systemd service creation"
+systemd_setup $app_name
 
 daemon_reload
 

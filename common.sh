@@ -38,17 +38,50 @@ nodejs_setup() {
     validate $? "Installing nodejs"
 }
 
-user_creation() {
-    id $1 &>>$log_file
-    if [ $? -ne 0 ]; then
-        useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" $1 &>>$log_file
-        validate $? "$1 user creation"
-    else
-        echo -e " "[ $(date '+%F %T') ] " $1 user already exists ... $Y SKIPPING $N" | tee -a $log_file
-    fi
+maven_install() {
+    dnf install maven -y &>>$log_file
+    validate $? "Installing maven"
+}
+
+java_build() {
+    cd /app &>>$log_file
+    mvn clean package &>>$log_file
+    mv target/shipping-1.0.jar $app_name.jar &>>$log_file
+}
+
+nodejs_build() {
+    cd /app &>>$log_file
+    npm install &>>$log_file
+    validate $? "Installing dependencies"
+}
+
+python_build() {
+    cd /app &>>$log_file
+    pip3 install -r requirements.txt &>>$log_file
+    validate $? "Installing dependencies"
+}
+
+go_build() {
+    cd /app &>>$log_file
+    go mod init dispatch &>>$log_file
+    validate $? "Initializing module"
+
+    go get &>>$log_file
+    validate $? "Downloading dependencies" 
+
+    go build&>>$log_file
+    validate $? "Build creation"
 }
 
 app_setup() {
+
+    id roboshop &>>$log_file
+    if [ $? -ne 0 ]; then
+        useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$log_file
+        validate $? "roboshop user creation"
+    else
+        echo -e " "[ $(date '+%F %T') ] " roboshop user already exists ... $Y SKIPPING $N" | tee -a $log_file
+    fi
 
     mkdir -p /app &>>$log_file
     validate $? "App directory creation"
@@ -65,6 +98,11 @@ app_setup() {
     unzip /tmp/$app_name.zip &>>$log_file
     validate $? "Unziping $app_name code"
 
+}
+
+systemd_setup() {
+    cp $script_dir/$1.service /etc/systemd/system/$1.service &>>$log_file
+    validate $? "$1 systemd service creation"
 }
 
 daemon_reload() {
@@ -85,5 +123,5 @@ service_restart() {
 
 execution_time( ){
     end_time=$(date +%s)
-    echo "script execution time $(($end_time - $start_time))"
+    echo " "[ $(date '+%F %T') ] " script execution time $(($end_time - $start_time))"
 }
