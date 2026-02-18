@@ -32,7 +32,7 @@ validate $? "mongo shell installation"
 
 index=$(mongosh --host $mongodb_host --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")' )
 if [ $index -le 0 ]; then
-    mongosh --host $mongodb_host </app/db/master-data.js
+    mongosh --host $mongodb_host </app/db/master-data.js &>>$log_file
     validate $? "Master data loading"
 else
     echo -e " "[ $(date '+%F %T') ]" Master data already exists ... $Y SKIPPING $N" | tee -a $log_file
