@@ -26,7 +26,7 @@ validate $? "Unziping frontend code"
 rm -rf /etc/nginx/nginx.conf &>>$log_file
 validate $? "Removing Nginx configuration"
 
-cp $script_dir /etc/nginx/nginx.conf &>>$log_file
+cp $script_dir/nginx.conf /etc/nginx/nginx.conf &>>$log_file
 validate $? "Reverse Proxy config creation"
 
 service_restart $app_name
