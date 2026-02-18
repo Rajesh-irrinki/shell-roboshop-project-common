@@ -29,7 +29,7 @@ validate $? "Removing Nginx configuration"
 cp $script_dir/nginx.conf /etc/nginx/nginx.conf &>>$log_file
 validate $? "Reverse Proxy config creation"
 
-service_restart $app_name
+service_restart nginx
 
 execution_time
 
