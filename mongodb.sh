@@ -15,6 +15,7 @@ validate $? "Installing Mongodb"
 service_start $app_name
 
 sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mongod.conf &>>$log_file
+validate $? "Allow remote connections"
 
 service_restart $app_name
 
