@@ -13,16 +13,16 @@ mkdir -p $log_folder
 
 check_root() {
     if [ $user_id -ne 0 ]; then
-        echo -e "$(date +%F %T ) | $R Please run the script with root access $N " | tee -a $log_file
+        echo -e " "[ $(date '+%F %T') ]" $R Please run the script with root access $N " | tee -a $log_file
         exit 1
     fi
 }
 
 validate() {
     if [ $1 -eq 0 ]; then
-      echo -e "$(date +%F %T ) | $2  ... $G SUCCESS $N" | tee -a  $log_file
+      echo -e " "[ $(date '+%F %T') ]"  $2  ... $G SUCCESS $N" | tee -a  $log_file
     else
-      echo -e "$(date +%F %T ) | $2  ... $R FAILED $N " | tee -a $log_file
+      echo -e " "[ $(date '+%F %T') ]"  $2  ... $R FAILED $N " | tee -a $log_file
       exit 1
     fi
 }
