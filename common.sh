@@ -44,7 +44,7 @@ user_creation() {
         useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" $1 &>>$log_file
         validate $? "$1 user creation"
     else
-        echo -e " "[ $(date '+%F %T') ]" $1 user already exists ... $Y SKIPPING $N" | tee -a $log_file
+        echo -e " "[ $(date '+%F %T') ] " $1 user already exists ... $Y SKIPPING $N" | tee -a $log_file
     fi
 }
 
