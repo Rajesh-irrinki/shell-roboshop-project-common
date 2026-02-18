@@ -8,6 +8,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 start_time=$(date +%s)
+script_dir=$(cd "$(dirname "$0")" && pwd)
 echo "Script execution started at : $(date '+%F %T' )"
 
 mkdir -p $log_folder

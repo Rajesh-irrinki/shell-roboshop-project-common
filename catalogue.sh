@@ -1,10 +1,9 @@
 #!/bin/bash
 
 app_name=catalogue
-script_dir=$(cd "$(dirname "$0")" && pwd)
 mongodb_host=mongodb.rajeshirrinki.online
 
-source $script_dir/common.sh
+source ./common.sh
 
 check_root
 

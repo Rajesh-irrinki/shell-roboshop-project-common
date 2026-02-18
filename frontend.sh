@@ -1,9 +1,7 @@
 #!/bin/bash
 
 app_name=frontend
-script_dir=$(cd "$(dirname "$0")" && pwd)
-
-source $script_dir/common.sh
+source ./common.sh
 
 check_root
 

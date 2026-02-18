@@ -1,9 +1,8 @@
 #!/bin/bash
 
 app_name=mysql
-script_dir=$(cd "$(dirname "$0")" && pwd)
 
-source $script_dir/common.sh
+source ./common.sh
 
 check_root
 
