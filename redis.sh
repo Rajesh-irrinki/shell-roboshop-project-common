@@ -2,6 +2,8 @@
 
 app_name=redis
 
+source ./common.sh
+
 check_root 
 
 dnf module disable redis -y &>>$log_file
