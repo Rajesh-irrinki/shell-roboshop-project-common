@@ -30,7 +30,7 @@ validate $? "Mongo.repo creation"
 dnf install mongodb-mongosh -y &>>$log_file
 validate $? "mongo shell installation"
 
-index=(mongosh -h $mongodb_host --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")' )
+index=$(mongosh -h $mongodb_host --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")' )
 if [ $index -le 0 ]; then
     mongosh --host $mongodb_host </app/db/master-data.js
     validate $? "Master data loading"
