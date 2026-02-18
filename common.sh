@@ -123,5 +123,5 @@ service_restart() {
 
 execution_time( ){
     end_time=$(date +%s)
-    echo " "[ $(date '+%F %T') ] " script execution time $(($end_time - $start_time))"
+    echo " "[ $(date '+%F %T') ] " script execution time $(($end_time - $start_time)) secs"
 }
